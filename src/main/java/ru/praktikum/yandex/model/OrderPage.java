@@ -1,22 +1,16 @@
 package ru.praktikum.yandex.model;
 
-import org.junit.Before;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class OrderPage {
     private final WebDriver driver;
-    public final String PAGE_URL = "https://qa-scooter.praktikum-services.ru/";
+    public static final String PAGE_URL = "https://qa-scooter.praktikum-services.ru/";
     private By name = By.xpath(".//input[@placeholder='* Имя']");
     private By surname = By.xpath(".//input[@placeholder='* Фамилия']");
     private By cookie = By.id("rcc-confirm-button");
 
     //Выпадающее меню метро
     private By metro = By.className("select-search__input");
-
-    //Локатор открытого списка станций метро
-    private By metroList = By.className("select-search__select");
 
     //Локатор кнопки Далее
     private By done = By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
@@ -27,18 +21,18 @@ public class OrderPage {
     //Локатор поля дата
     private By date = By.xpath(".//input[@placeholder='* Когда привезти самокат']");
 
-    //Локатор сегоняшней даты в календаре
-    private By todayDate = By.xpath(".//*[contains(@class, 'react-datepicker__day--today')]");
-
     //Локатор поля срока аренды
     private By rentPeriod = By.className("Dropdown-placeholder");
 
     //Локатор кнопки "Заказать" в форме заказа
     private By finalOrderButton = By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
 
-    //Локатор кнопки подтвeрждения заказа
-//    private By yesButton = By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
-    private By yesButton = By.xpath("//*[@id='root']/div/div[2]/div[5]/div[2]/button[2]");
+    //Локатор кнопки подтверждения заказа
+    private By yesButton = By.xpath("//*[text()='Да']");
+
+    //Локатор окна подтверждения оформления заказа
+    private By orderWellDone = By.xpath(".//*[text()='Заказ оформлен']");
+
 
     public OrderPage(WebDriver driver) {
         this.driver = driver;
@@ -65,10 +59,6 @@ public class OrderPage {
         By period = By.xpath(".//div[@class='Dropdown-menu']/div[text()='" + newPeriod + "']");
         return period;
     }
-
-    //Локатор окна подтверждения оформления заказа
-    private By orderWellDone = By.xpath(".//*[text()='Заказ оформлен']");
-
 
     //Функция нажатия кнопки "Далее" на первой странице формы заказа
     public void clickDoneButton() {

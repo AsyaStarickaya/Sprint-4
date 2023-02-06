@@ -4,7 +4,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import ru.praktikum.yandex.model.MainPage;
@@ -17,7 +16,6 @@ public class CheckDropDownListTest {
     MainPage mainPage;
 
     private int buttonNumber;
-//    private By dropDownAnswerXpath;
     private String expectedTextInAnswerDropDown;
 
     public CheckDropDownListTest(int buttonNumber, String expectedTextInAnswerDropDown) {
@@ -25,8 +23,8 @@ public class CheckDropDownListTest {
         this.expectedTextInAnswerDropDown = expectedTextInAnswerDropDown;
     }
     @Parameterized.Parameters
-//    {омер кнопки, "Ожидаемый текст в выпадающем ответе"},
-    public static Object[] getSumData() {
+//    {номер кнопки, "Ожидаемый текст в выпадающем ответе"},
+    public static Object[] DropDownListTrue() {
 
         return new Object[][]{
                 {0, "Сутки — 400 рублей. Оплата курьеру — наличными или картой."},
@@ -52,7 +50,7 @@ public class CheckDropDownListTest {
     public void test() {
         mainPage.open();
         mainPage.clickDropDownList(buttonNumber);
-        String actual = mainPage.actualText(buttonNumber);
+        String actual = mainPage.getDropDownAnswerText(buttonNumber);
         Assert.assertEquals(expectedTextInAnswerDropDown, actual);
     }
 
