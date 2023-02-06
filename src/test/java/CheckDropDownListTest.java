@@ -24,7 +24,7 @@ public class CheckDropDownListTest {
     }
     @Parameterized.Parameters
 //    {номер кнопки, "Ожидаемый текст в выпадающем ответе"},
-    public static Object[] DropDownListTrue() {
+    public static Object[] dropDownListTrue() {
 
         return new Object[][]{
                 {0, "Сутки — 400 рублей. Оплата курьеру — наличными или картой."},
