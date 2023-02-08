@@ -1,4 +1,4 @@
-package ru.praktikum.yandex.model;
+package pageobject;
 
 import org.openqa.selenium.*;
 

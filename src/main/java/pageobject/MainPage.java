@@ -1,4 +1,4 @@
-package ru.praktikum.yandex.model;
+package pageobject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -29,9 +29,9 @@ public class MainPage {
 
 
     //верхняя кнопка "Заказать"
-    public final By FIRST_BUTTON_ORDERED = By.className("Button_Button__ra12g");
+    public final By firstButtonOrdered = By.className("Button_Button__ra12g");
     //нижняя кнопка "Заказать"
-    public final By SECOND_BUTTON_ORDERED = By.xpath(
+    public final By secondButtonOrdered = By.xpath(
             ".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
 
     By questionButtonList[] = {
@@ -75,14 +75,14 @@ public class MainPage {
 
     //Функция нажатия на первую кнопку "Заказать"
     public void clickToOrderButtonFirst() {
-        driver.findElement(FIRST_BUTTON_ORDERED).click();
+        driver.findElement(firstButtonOrdered).click();
     }
 
     //Функция нажатия на вторую кнопку "Заказать"
     public void clickToOrderButtonSecond() {
         new WebDriverWait(driver, 3)
-                .until(ExpectedConditions.elementToBeClickable(SECOND_BUTTON_ORDERED));
-        driver.findElement(SECOND_BUTTON_ORDERED).click();
+                .until(ExpectedConditions.elementToBeClickable(secondButtonOrdered));
+        driver.findElement(secondButtonOrdered).click();
     }
 
 }

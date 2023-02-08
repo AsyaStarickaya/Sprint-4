@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import ru.praktikum.yandex.model.MainPage;
+import pageobject.MainPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 @RunWith(Parameterized.class)
@@ -47,7 +47,7 @@ public class CheckDropDownListTest {
     }
 
     @Test
-    public void test() {
+    public void checkDropDownAnswerTrue() {
         mainPage.open();
         mainPage.clickDropDownList(buttonNumber);
         String actual = mainPage.getDropDownAnswerText(buttonNumber);

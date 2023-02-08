@@ -1,3 +1,5 @@
+package ru.praktikum.yandex.model;
+
 public class UserData {
 
     private String userName;
