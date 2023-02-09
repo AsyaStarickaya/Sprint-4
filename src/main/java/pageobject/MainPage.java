@@ -18,14 +18,14 @@ public class MainPage {
     private final By dropDownQuestion5 = By.xpath("//*[@id=\"accordion__heading-5\"]");
     private final By dropDownQuestion6 = By.xpath("//*[@id=\"accordion__heading-6\"]");
     private final By dropDownQuestion7 = By.xpath("//*[@id=\"accordion__heading-7\"]");
-    private final By DropDownAnswer0 = By.id("accordion__panel-0");
-    private final By DropDownAnswer1 = By.id("accordion__panel-1");
-    private final By DropDownAnswer2 = By.id("accordion__panel-2");
-    private final By DropDownAnswer3 = By.id("accordion__panel-3");
-    private final By DropDownAnswer4 = By.id("accordion__panel-4");
-    private final By DropDownAnswer5 = By.id("accordion__panel-5");
-    private final By DropDownAnswer6 = By.id("accordion__panel-6");
-    private final By DropDownAnswer7 = By.id("accordion__panel-7");
+    private final By dropDownAnswer0 = By.id("accordion__panel-0");
+    private final By dropDownAnswer1 = By.id("accordion__panel-1");
+    private final By dropDownAnswer2 = By.id("accordion__panel-2");
+    private final By dropDownAnswer3 = By.id("accordion__panel-3");
+    private final By dropDownAnswer4 = By.id("accordion__panel-4");
+    private final By dropDownAnswer5 = By.id("accordion__panel-5");
+    private final By dropDownAnswer6 = By.id("accordion__panel-6");
+    private final By dropDownAnswer7 = By.id("accordion__panel-7");
 
 
     //верхняя кнопка "Заказать"
@@ -45,14 +45,14 @@ public class MainPage {
             dropDownQuestion7
     };
     By answerButtonList[] = {
-            DropDownAnswer0,
-            DropDownAnswer1,
-            DropDownAnswer2,
-            DropDownAnswer3,
-            DropDownAnswer4,
-            DropDownAnswer5,
-            DropDownAnswer6,
-            DropDownAnswer7
+            dropDownAnswer0,
+            dropDownAnswer1,
+            dropDownAnswer2,
+            dropDownAnswer3,
+            dropDownAnswer4,
+            dropDownAnswer5,
+            dropDownAnswer6,
+            dropDownAnswer7
     };
 
     public MainPage(WebDriver driver) {
@@ -84,5 +84,4 @@ public class MainPage {
                 .until(ExpectedConditions.elementToBeClickable(secondButtonOrdered));
         driver.findElement(secondButtonOrdered).click();
     }
-
 }

@@ -15,19 +15,8 @@ public class OrderSamokatTest {
     private WebDriver driver;
     MainPage mainPage;
     OrderPage orderPage;
-    UserData userData;
-    private static final String USER_NAME_1 = "Иван";
-    private static final String USER_NAME_2 = "Тест";
-    private static final String USER_SURNAME_1 = "Иванов";
-    private static final String USER_SURNAME_2 = "Тестов";
-    private static final String USER_PHONE_1 = "79523999737";
-    private static final String USER_PHONE_2 = "79999999999";
-    private static final String USER_STATION_1 = "Сокольники";
-    private static final String USER_STATION_2 = "Черкизовская";
-    private static final String USER_DELIVER_DATE_1 = "01.03.2023";
-    private static final String USER_DELIVER_DATE_2 = "30.09.2023";
-    private static final String USER_RENT_PERIOD_1 = "трое суток";
-    private static final String USER_RENT_PERIOD_2 = "сутки";
+    private static final UserData USER_DATA_1 = new UserData("Иван",  "Иванов", "79523999737", "Сокольники", "01.03.2023",  "трое суток");
+    private static final UserData USER_DATA_2 = new UserData("Тест",  "Тестов", "79999999999", "Черкизовская", "30.09.2023",  "сутки");
 
     @Before
     public void setUp() {
@@ -39,15 +28,15 @@ public class OrderSamokatTest {
 
     @Test
     public void createOrderWithFirstButtonTrue() {
-        userData = new UserData(USER_NAME_1, USER_SURNAME_1, USER_PHONE_1, USER_STATION_1, USER_DELIVER_DATE_1,  USER_RENT_PERIOD_1);
+
         orderPage.open();
         orderPage.acceptCookie();
         mainPage.clickToOrderButtonFirst();
-        orderPage.inputTextForm(userData.getUserName(), userData.getUserSurname(), userData.getUserPhone());
-        orderPage.metroSelect(userData.getMetroStation());
+        orderPage.inputTextForm(USER_DATA_1.getUserName(), USER_DATA_1.getUserSurname(), USER_DATA_1.getUserPhone());
+        orderPage.metroSelect(USER_DATA_1.getMetroStation());
         orderPage.clickDoneButton();
-        orderPage.dateSelect(userData.getDeliverDate());
-        orderPage.rentPeriodSelect(userData.getRentPeriodSelect());
+        orderPage.dateSelect(USER_DATA_1.getDeliverDate());
+        orderPage.rentPeriodSelect(USER_DATA_1.getRentPeriodSelect());
         orderPage.clickFinalOrderButton();
         orderPage.clickYesButton();
         assertTrue(orderPage.orderDoneCheck());
@@ -55,15 +44,14 @@ public class OrderSamokatTest {
 
     @Test
     public void createOrderWithSecondButtonTrue() {
-        userData = new UserData(USER_NAME_2, USER_SURNAME_2, USER_PHONE_2, USER_STATION_2, USER_DELIVER_DATE_2, USER_RENT_PERIOD_2);
         orderPage.open();
         orderPage.acceptCookie();
         mainPage.clickToOrderButtonSecond();
-        orderPage.inputTextForm(userData.getUserName(), userData.getUserSurname(), userData.getUserPhone());
-        orderPage.metroSelect(userData.getMetroStation());
+        orderPage.inputTextForm(USER_DATA_2.getUserName(), USER_DATA_2.getUserSurname(), USER_DATA_2.getUserPhone());
+        orderPage.metroSelect(USER_DATA_2.getMetroStation());
         orderPage.clickDoneButton();
-        orderPage.dateSelect(userData.getDeliverDate());
-        orderPage.rentPeriodSelect(userData.getRentPeriodSelect());
+        orderPage.dateSelect(USER_DATA_2.getDeliverDate());
+        orderPage.rentPeriodSelect(USER_DATA_2.getRentPeriodSelect());
         orderPage.clickFinalOrderButton();
         orderPage.clickYesButton();
         assertTrue(orderPage.orderDoneCheck());
